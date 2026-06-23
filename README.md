@@ -12,12 +12,19 @@
   <img src="https://img.shields.io/badge/License-MIT-F2C53D?style=for-the-badge&logo=opensourceinitiative&logoColor=black" alt="License" />
 </p>
 
-<img src="me.png" width="220" alt="Anas Boualem - ETF-Devb Creator" style="border-radius: 50%; border: 4px solid #00C853; margin-top: 10px; box-shadow: 0 0 15px rgba(0, 200, 83, 0.5);" />
+<img src="images/me.png" width="220" alt="Anas Boualem - ETF-Devb Creator" style="border-radius: 50%; border: 4px solid #00C853; margin-top: 10px; box-shadow: 0 0 15px rgba(0, 200, 83, 0.5);" />
 
 <br>
 
 > **"Bridging the gap between Mobile Portability and Desktop Productivity."**  
 > ETF-Devb OS provides a fully accelerated, aesthetically perfected desktop experience directly on your Android device, utilizing X11, PulseAudio, and VirGL for maximum performance.
+
+<br>
+
+<!-- Professional Download Button -->
+<a href="https://github.com/ETF-Devb/ETF-Devb-OS/releases/latest">
+  <img src="https://img.shields.io/badge/📥_DOWNLOAD_OFFICIAL_RELEASE-v1.0.0-8A2BE2?style=for-the-badge&logo=github&logoColor=white&scale=1.2" alt="Download Release" />
+</a>
 
 </div>
 
@@ -101,9 +108,7 @@ termux-setup-storage
 Run the automated installer. This will download the image, verify its SHA256 integrity, extract the filesystem, and configure the global commands.
 
 ```bash
-curl -sL [https://raw.githubusercontent.com/ETF-Devb/ETF-Devb-OS/main/etf-os.sh](https://raw.githubusercontent.com/ETF-Devb/ETF-Devb-OS/main/etf-os.sh) -o etf-os.sh
-chmod +x etf-os.sh
-./etf-os.sh
+curl -sL [https://raw.githubusercontent.com/ETF-Devb/ETF-Devb-OS/main/etf-os.sh](https://raw.githubusercontent.com/ETF-Devb/ETF-Devb-OS/main/etf-os.sh) -o etf-os.sh && chmod +x etf-os.sh && ./etf-os.sh
 
 ```
 
@@ -144,9 +149,5 @@ rm -rf $PREFIX/var/lib/proot-distro/installed-rootfs/debian
 rm -f $PREFIX/bin/etf-cli $PREFIX/bin/etf-gui
 
 ```
-
----
-
-## ❓ ❬ FAQ_&_TROUBLESHOOTING ❭
 
 ---
