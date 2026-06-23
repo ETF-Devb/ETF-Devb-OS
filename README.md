@@ -12,10 +12,11 @@
   <img src="https://img.shields.io/badge/License-MIT-F2C53D?style=for-the-badge&logo=opensourceinitiative&logoColor=black" alt="License" />
 </p>
 
-<!-- Author Profile Image (Forced RAW Link to guarantee visibility) -->
-<img src="https://raw.githubusercontent.com/ETF-Devb/ETF-Devb-OS/main/images/me.png" width="220" alt="Anas Boualem - ETF-Devb Creator" />
+<p align="center">
+  <img src="images/me.png" width="300" alt="ETF-Devb Creator" />
+</p>
 
-<br><br>
+<br>
 
 > **"Bridging the gap between Mobile Portability and Desktop Productivity."**  
 > ETF-Devb OS provides a fully accelerated, aesthetically perfected desktop experience directly on your Android device, utilizing X11, PulseAudio, and VirGL for maximum performance.
@@ -147,9 +148,5 @@ Need to free up space? You can safely remove the entire OS and its shortcuts by 
 ```bash
 rm -rf $PREFIX/var/lib/proot-distro/installed-rootfs/debian
 rm -f $PREFIX/bin/etf-cli $PREFIX/bin/etf-gui
-
-```
-
----
 
 ```
