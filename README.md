@@ -11,7 +11,6 @@
   <img src="https://img.shields.io/badge/GUI-XFCE4-466486?style=for-the-badge&logo=xfce4&logoColor=white" alt="XFCE4" />
   <img src="https://img.shields.io/badge/License-MIT-F2C53D?style=for-the-badge&logo=opensourceinitiative&logoColor=black" alt="License" />
 </p>
-
 <p align="center">
   <img src="images/me.png" width="300" alt="ETF-Devb Creator" />
 </p>
