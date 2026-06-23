@@ -1,86 +1,104 @@
 <div align="center">
 
 <!-- Animated Header -->
-<img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=800&size=45&pause=1000&color=00C853&center=true&vCenter=true&width=800&height=100&lines=ETF-Devb+OS;Ultimate+Desktop+Experience;Powered+by+Termux+%26+Debian" alt="ETF-Devb OS Animated Header" />
+<img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=800&size=40&pause=1000&color=00C853&center=true&vCenter=true&width=800&height=100&lines=ETF-Devb+OS;The+Ultimate+Desktop+Experience;Powered+by+Termux+%26+Debian" alt="ETF-Devb OS Animated Header" />
 
-**Advanced Linux Subsystem Environment for Android**
+**Advanced macOS-Inspired Linux Subsystem Environment for Android**
 
 <p align="center">
-  <a href="https://github.com/ETF-Devb/ETF-Devb-OS">
-    <img src="https://img.shields.io/badge/OS-Debian_12-A81D33?style=for-the-badge&logo=debian&logoColor=white" alt="Debian 12" />
-  </a>
-  <a href="https://github.com/termux/termux-app">
-    <img src="https://img.shields.io/badge/Platform-Android_Termux-00C853?style=for-the-badge&logo=android&logoColor=white" alt="Termux" />
-  </a>
-  <a href="https://xfce.org/">
-    <img src="https://img.shields.io/badge/GUI-XFCE4-466486?style=for-the-badge&logo=xfce4&logoColor=white" alt="XFCE4" />
-  </a>
-  <a href="https://github.com/ETF-Devb/ETF-Devb-OS/releases/latest">
-    <img src="https://img.shields.io/github/v/release/ETF-Devb/ETF-Devb-OS?style=for-the-badge&color=8A2BE2&label=Version&logo=github" alt="Release" />
-  </a>
+  <img src="https://img.shields.io/badge/OS-Debian_12-A81D33?style=for-the-badge&logo=debian&logoColor=white" alt="Debian 12" />
+  <img src="https://img.shields.io/badge/Platform-Android_Termux-00C853?style=for-the-badge&logo=android&logoColor=white" alt="Termux" />
+  <img src="https://img.shields.io/badge/GUI-XFCE4-466486?style=for-the-badge&logo=xfce4&logoColor=white" alt="XFCE4" />
+  <img src="https://img.shields.io/badge/License-MIT-F2C53D?style=for-the-badge&logo=opensourceinitiative&logoColor=black" alt="License" />
 </p>
 
-<img src="images/me.png" width="250" alt="Anas Boualem - ETF-Devb Creator" style="border-radius: 50%; border: 3px solid #00C853; margin-top: 15px;" />
+<img src="images/me.png" width="220" alt="Anas Boualem - ETF-Devb Creator" style="border-radius: 50%; border: 4px solid #00C853; margin-top: 10px; box-shadow: 0 0 15px rgba(0, 200, 83, 0.5);" />
 
-<br><br>
+<br>
 
 > **"Bridging the gap between Mobile Portability and Desktop Productivity."**  
-> ETF-Devb OS provides a fully accelerated, macOS-inspired desktop experience directly on your Android device, utilizing X11, PulseAudio, and VirGL for maximum performance.
+> ETF-Devb OS provides a fully accelerated, aesthetically perfected desktop experience directly on your Android device, utilizing X11, PulseAudio, and VirGL for maximum performance.
 
 </div>
 
-<br>
+---
+
+## 📑 ❬ TABLE_OF_CONTENTS ❭
+1. [🌟 Key Features](#-key-features)
+2. [⚙️ System Requirements](#️-system-requirements)
+3. [🏗️ Architecture Overview](#️-architecture-overview)
+4. [📸 System Gallery](#-system-gallery)
+5. [📥 Installation Guide](#-installation-guide)
+6. [🚀 Execution Protocol](#-execution-protocol)
+7. [🗑️ Uninstallation](#️-uninstallation)
+8. [❓ FAQ & Troubleshooting](#-faq--troubleshooting)
+
+---
+
+## 🌟 ❬ KEY_FEATURES ❭
+
+*   **🍏 macOS-Inspired UI/UX:** A heavily customized XFCE4 desktop environment featuring a dock, top panel, and polished icon themes for a premium look and feel.
+*   **🚀 Hardware Acceleration:** Native integration with `VirGL` (virpipe) to utilize your Android device's GPU for smooth 3D rendering and window transitions.
+*   **🎵 Seamless Audio:** Built-in `PulseAudio` server bridging the Linux environment with Android's audio system with zero noticeable latency.
+*   **📦 Out-of-the-Box Ready:** Pre-configured with essential desktop applications, file managers, and network tools (No post-install bloated setup required).
+*   **⚡ Automated Deployment:** A robust single-script installer with cryptographic checksum verification (SHA256).
+
+---
+
+## ⚙️ ❬ SYSTEM_REQUIREMENTS ❭
+
+Because ETF-Devb OS is a fully-fledged desktop environment, please ensure your device meets the following specifications:
+
+| Requirement | Minimum | Recommended |
+| :--- | :--- | :--- |
+| **Android Version** | Android 10 | Android 12+ |
+| **RAM** | 4 GB | 6 GB or higher |
+| **Storage Space** | 8 GB Free Space | 12 GB Free Space (SSD/UFS storage) |
+| **Required Apps** | Termux & Termux-X11 | Termux & Termux-X11 (Latest builds) |
+
+> ⚠️ *Note: The compressed image is ~2GB, but expands to ~6-8GB upon extraction.*
+
+---
+
+## 🏗️ ❬ ARCHITECTURE_OVERVIEW ❭
+
+Curious how it works under the hood? Here is the flow of ETF-Devb OS:
+
+```mermaid
+graph TD
+    A[Android Hardware / OS] -->|Storage & CPU| B(Termux Environment)
+    B -->|proot-distro| C{ETF-Devb OS <br> Debian 12 Core}
+    C -->|DISPLAY=:1| D[Termux-X11 Server]
+    C -->|GALLIUM_DRIVER=virpipe| E[VirGL 3D Server]
+    C -->|TCP 127.0.0.1| F[PulseAudio Server]
+    D & E & F --> G((XFCE4 macOS-like UI))
+    
+    style C fill:#A81D33,stroke:#fff,stroke-width:2px,color:#fff
+    style G fill:#466486,stroke:#fff,stroke-width:2px,color:#fff
+
+```
 
 ---
 
 ## 📸 ❬ SYSTEM_GALLERY ❭
 
-<table align="center" style="border-collapse: collapse; border: none;">
-  <tr>
-    <td align="center"><img src="images/1.png" width="400" style="border-radius: 10px;" alt="UI Preview 1" /></td>
-    <td align="center"><img src="images/2.png" width="400" style="border-radius: 10px;" alt="UI Preview 2" /></td>
-  </tr>
-  <tr>
-    <td align="center"><img src="images/3.png" width="400" style="border-radius: 10px;" alt="UI Preview 3" /></td>
-    <td align="center"><img src="images/4.png" width="400" style="border-radius: 10px;" alt="UI Preview 4" /></td>
-  </tr>
-  <tr>
-    <td align="center"><img src="images/5.png" width="400" style="border-radius: 10px;" alt="UI Preview 5" /></td>
-    <td align="center"><img src="images/6.png" width="400" style="border-radius: 10px;" alt="UI Preview 6" /></td>
-  </tr>
-</table>
-
 ---
 
-## 📥 ❬ CORE_RESOURCES ❭
+## 📥 ❬ INSTALLATION_GUIDE ❭
 
-To get started, you must download the core image and the required display server infrastructure.
+### `STEP 1:` Environment Setup
 
-<div align="center">
-  
-  <a href="https://github.com/ETF-Devb/ETF-Devb-OS/releases/latest">
-    <img src="https://img.shields.io/badge/⬇_DOWNLOAD_OFFICIAL_ASSETS-212121?style=for-the-badge&logo=github&logoColor=00C853&labelColor=111111" alt="Download Official Assets" />
-  </a>
-  
-</div>
+Launch Termux, update packages, and grant necessary storage permissions:
 
-> **[ # ] REQUIRED:** Ensure you have installed **Termux** and the **Termux-X11** plugin before proceeding. The core OS image (approx. 2GB) is securely hosted in the official release section.
-
----
-
-## ⚙️ ❬ INSTALLATION_FLOW ❭
-
-### `STEP 1:` Environment Initialization
-Prepare your Termux environment and grant storage permissions.
 ```bash
 pkg update && pkg upgrade -y
 termux-setup-storage
 
 ```
 
-### `STEP 2:` Automated Deployment
+### `STEP 2:` Execute Deployment Script
 
-Execute the ETF-Devb automated installer. This script securely fetches the system, verifies cryptographic integrity, extracts the subsystem, and automatically generates your global shortcuts.
+Run the automated installer. This will download the image, verify its SHA256 integrity, extract the filesystem, and configure the global commands.
 
 ```bash
 curl -sL [https://raw.githubusercontent.com/ETF-Devb/ETF-Devb-OS/main/etf-os.sh](https://raw.githubusercontent.com/ETF-Devb/ETF-Devb-OS/main/etf-os.sh) -o etf-os.sh
@@ -93,34 +111,38 @@ chmod +x etf-os.sh
 
 ## 🚀 ❬ EXECUTION_PROTOCOL ❭
 
-> [!IMPORTANT]
-> The automated installer handles all heavy lifting. Post-installation, the system is fully integrated. Use the dynamically generated global commands below to initialize your sessions.
+The installer automatically generates global shortcuts for seamless access.
 
-### 🖥️ Option A: CLI Mode (Terminal Only)
+### 🌌 Full Desktop Experience (GUI Mode)
 
-For a lightning-fast, pure command-line interface directly within Termux:
-
-```bash
-etf-cli
-
-```
-
-### 🌌 Option B: GUI Mode (Full Desktop Experience)
-
-Ignite the full XFCE4 desktop environment, complete with PulseAudio routing and VirGL 3D hardware acceleration:
+To launch the full XFCE4 macOS-like desktop with hardware acceleration and audio:
 
 ```bash
 etf-gui
 
 ```
 
-> ⚠️ **CRITICAL:** Ensure the **Termux-X11 app** is active in the background *before* executing this command.
+> ⚠️ **CRITICAL:** You must open the **Termux-X11** app in the background *before* executing this command.
+
+### 🖥️ Pure Terminal (CLI Mode)
+
+If you only need quick access to the Debian subsystem via terminal:
+
+```bash
+etf-cli
+
+```
 
 ---
 
-## 🛑 ❬ KILL_SWITCH ❭
+## 🗑️ ❬ UNINSTALLATION ❭
 
-**Self-Managing Architecture:**
+Need to free up space? You can safely remove the entire OS and its shortcuts by running:
 
-The environment is engineered for stability. The `etf-gui` session is tightly linked to your display server. Once you safely close the Termux-X11 display app, the built-in Kill Switch automatically hunts down and terminates all background ghost processes (PulseAudio, VirGL, D-Bus), ensuring zero battery drain.
-؟
+```bash
+rm -rf $PREFIX/var/lib/proot-distro/installed-rootfs/debian
+rm -f $PREFIX/bin/etf-cli $PREFIX/bin/etf-gui
+
+```
+
+---
