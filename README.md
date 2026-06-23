@@ -12,9 +12,10 @@
   <img src="https://img.shields.io/badge/License-MIT-F2C53D?style=for-the-badge&logo=opensourceinitiative&logoColor=black" alt="License" />
 </p>
 
-<img src="images/me.png" width="220" alt="Anas Boualem - ETF-Devb Creator" style="border-radius: 50%; border: 4px solid #00C853; margin-top: 10px; box-shadow: 0 0 15px rgba(0, 200, 83, 0.5);" />
+<!-- Author Profile Image (Forced RAW Link to guarantee visibility) -->
+<img src="https://raw.githubusercontent.com/ETF-Devb/ETF-Devb-OS/main/images/me.png" width="220" alt="Anas Boualem - ETF-Devb Creator" />
 
-<br>
+<br><br>
 
 > **"Bridging the gap between Mobile Portability and Desktop Productivity."**  
 > ETF-Devb OS provides a fully accelerated, aesthetically perfected desktop experience directly on your Android device, utilizing X11, PulseAudio, and VirGL for maximum performance.
@@ -38,7 +39,6 @@
 5. [📥 Installation Guide](#-installation-guide)
 6. [🚀 Execution Protocol](#-execution-protocol)
 7. [🗑️ Uninstallation](#️-uninstallation)
-8. [❓ FAQ & Troubleshooting](#-faq--troubleshooting)
 
 ---
 
@@ -151,3 +151,5 @@ rm -f $PREFIX/bin/etf-cli $PREFIX/bin/etf-gui
 ```
 
 ---
+
+```
