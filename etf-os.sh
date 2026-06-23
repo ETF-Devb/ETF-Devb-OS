@@ -14,43 +14,63 @@ INSTALL_DIR="$PREFIX/var/lib/proot-distro/installed-rootfs/debian"
 
 clear
 echo -e "${CYAN}╭───────────────────────────────────────────────╮${NC}"
-echo -e "${CYAN}│${NC} ${GREEN}         🌌 ETF-Devb OS Environment          ${NC} ${CYAN}│${NC}"
+echo -e "${CYAN}│${NC} ${GREEN}         🌌 ETF-Devb OS Installer          ${NC} ${CYAN}│${NC}"
 echo -e "${CYAN}╰───────────────────────────────────────────────╯${NC}"
 echo ""
 
-if [ ! -d "$INSTALL_DIR" ]; then
-    echo -e "${YELLOW}[!] ETF-Devb OS is not installed. Initializing setup...${NC}\n"
-    
-    pkg update -y > /dev/null 2>&1
-    pkg install wget proot-distro pulseaudio -y > /dev/null 2>&1
-
-    mkdir -p "$INSTALL_DIR"
-    cd $TMPDIR
-
-    echo -e "${BLUE}[*] Fetching ETF-Devb OS Image (2GB)...${NC}"
-    wget -q --show-progress "$REPO_URL/$TAR_FILE"
-    wget -q "$REPO_URL/$SHA_FILE"
-    echo ""
-
-    echo -e "${BLUE}[*] Verifying Cryptographic Signature...${NC}"
-    if sha256sum -c "$SHA_FILE" > /dev/null 2>&1; then
-        echo -e "${GREEN}[✓] Checksum matches. Image is valid.${NC}\n"
-    else
-        echo -e "${RED}[✗] Fatal Error: Checksum mismatch. Aborting.${NC}"
-        rm -f "$TAR_FILE" "$SHA_FILE"
-        rm -rf "$INSTALL_DIR"
-        exit 1
-    fi
-
-    echo -e "${BLUE}[*] Extracting Subsystem... Please wait.${NC}"
-    tar -xJf "$TAR_FILE" -C "$INSTALL_DIR" --strip-components=1 2>/dev/null
-
-    rm -f "$TAR_FILE" "$SHA_FILE"
-    
-    echo -e "${GREEN}[✓] ETF-Devb OS Installation Complete!${NC}\n"
+# التحقق واش النظام مأنستالي ديجا
+if [ -d "$INSTALL_DIR" ]; then
+    echo -e "${GREEN}[✓] ETF-Devb OS is already installed!${NC}"
+    echo -e "${YELLOW}  👉 Type 'etf-cli' to open the Terminal.${NC}"
+    echo -e "${YELLOW}  👉 Type 'etf-gui' to start the Desktop Environment.${NC}\n"
+    exit 0
 fi
 
-echo -e "${CYAN}[*] Initializing X11 & Audio Servers...${NC}"
+echo -e "${YELLOW}[!] ETF-Devb OS not found. Starting installation...${NC}\n"
+
+pkg update -y > /dev/null 2>&1
+pkg install wget proot-distro pulseaudio -y > /dev/null 2>&1
+
+mkdir -p "$INSTALL_DIR"
+cd $TMPDIR
+
+echo -e "${BLUE}[*] Fetching ETF-Devb OS Image (2GB)...${NC}"
+wget -q --show-progress "$REPO_URL/$TAR_FILE"
+wget -q "$REPO_URL/$SHA_FILE"
+echo ""
+
+echo -e "${BLUE}[*] Verifying Cryptographic Signature...${NC}"
+if sha256sum -c "$SHA_FILE" > /dev/null 2>&1; then
+    echo -e "${GREEN}[✓] Checksum matches. Image is valid.${NC}\n"
+else
+    echo -e "${RED}[✗] Fatal Error: Checksum mismatch. Aborting.${NC}"
+    rm -f "$TAR_FILE" "$SHA_FILE"
+    rm -rf "$INSTALL_DIR"
+    exit 1
+fi
+
+echo -e "${BLUE}[*] Extracting Subsystem... Please wait.${NC}"
+tar -xJf "$TAR_FILE" -C "$INSTALL_DIR" --strip-components=1 2>/dev/null
+rm -f "$TAR_FILE" "$SHA_FILE"
+
+echo -e "${BLUE}[*] Creating Global Shortcuts (etf-cli & etf-gui)...${NC}"
+
+# =================================================================
+# صناعة أمر التيرمينال (etf-cli)
+# =================================================================
+cat << 'EOF' > $PREFIX/bin/etf-cli
+#!/data/data/com.termux/files/usr/bin/bash
+echo -e "\033[0;36m[✓] Entering ETF-Devb OS (CLI Mode)...\033[0m"
+proot-distro login debian --shared-tmp
+EOF
+chmod +x $PREFIX/bin/etf-cli
+
+# =================================================================
+# صناعة أمر الواجهة الرسومية والصوت (etf-gui)
+# =================================================================
+cat << 'EOF' > $PREFIX/bin/etf-gui
+#!/data/data/com.termux/files/usr/bin/bash
+echo -e "\033[0;36m[*] Initializing X11 & Audio Servers...\033[0m"
 
 pkill -9 termux-x11 2>/dev/null
 pkill -9 xfce4-session 2>/dev/null
@@ -63,7 +83,7 @@ virgl_test_server_android &
 pulseaudio --start --load="module-native-protocol-tcp auth-ip-acl=127.0.0.1 auth-anonymous=1" --exit-idle-time=-1
 sleep 3
 
-echo -e "${GREEN}[✓] Booting Sequence Initiated (XFCE4)...${NC}"
+echo -e "\033[0;32m[✓] Booting into ETF-Devb OS (XFCE4)...\033[0m"
 
 proot-distro login debian --shared-tmp -- bash -c "
     export DISPLAY=:1
@@ -85,5 +105,14 @@ proot-distro login debian --shared-tmp -- bash -c "
 while pgrep -f termux-x11 > /dev/null; do
     sleep 10
 done
+echo -e "\033[1;33m[!] Session Terminated.\033[0m"
+EOF
+chmod +x $PREFIX/bin/etf-gui
 
-echo -e "${YELLOW}[!] Session Terminated.${NC}"
+echo -e "${GREEN}╭───────────────────────────────────────────────╮${NC}"
+echo -e "${GREEN}│    🎉 Installation Completed Successfully!    │${NC}"
+echo -e "${GREEN}╰───────────────────────────────────────────────╯${NC}"
+echo -e "${CYAN}To use your new OS, type one of these commands:${NC}"
+echo -e "${YELLOW}  👉 etf-cli ${NC}(For pure Terminal mode)"
+echo -e "${YELLOW}  👉 etf-gui ${NC}(For full Desktop Environment with Audio)"
+echo ""
