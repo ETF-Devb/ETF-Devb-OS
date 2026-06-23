@@ -90,6 +90,18 @@ graph TD
 
 ## 📸 ❬ SYSTEM_GALLERY ❭
 
+<p align="center">
+  <img src="https://raw.githubusercontent.com/ETF-Devb/ETF-Devb-OS/main/images/me.png" width="300" alt="ETF-Devb Creator" />
+</p>
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/ETF-Devb/ETF-Devb-OS/main/images/1.png" width="400" alt="UI Preview 1" />
+  <img src="https://raw.githubusercontent.com/ETF-Devb/ETF-Devb-OS/main/images/2.png" width="400" alt="UI Preview 2" />
+  <img src="https://raw.githubusercontent.com/ETF-Devb/ETF-Devb-OS/main/images/3.png" width="400" alt="UI Preview 3" />
+  <img src="https://raw.githubusercontent.com/ETF-Devb/ETF-Devb-OS/main/images/4.png" width="400" alt="UI Preview 4" />
+  <img src="https://raw.githubusercontent.com/ETF-Devb/ETF-Devb-OS/main/images/5.png" width="400" alt="UI Preview 5" />
+  <img src="https://raw.githubusercontent.com/ETF-Devb/ETF-Devb-OS/main/images/6.png" width="400" alt="UI Preview 6" />
+</p>
 ---
 
 ## 📥 ❬ INSTALLATION_GUIDE ❭
