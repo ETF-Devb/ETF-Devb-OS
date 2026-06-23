@@ -7,16 +7,16 @@
 </p>
 
 <p align="center">
-  <img src="me.png" width="300" alt="ETF-Devb Creator" />
+  <img src="images/me.png" width="300" alt="ETF-Devb Creator" />
 </p>
 
 <p align="center">
-  <img src="1.png" width="400" alt="UI Preview 1" />
-  <img src="2.png" width="400" alt="UI Preview 2" />
-  <img src="3.png" width="400" alt="UI Preview 3" />
-  <img src="4.png" width="400" alt="UI Preview 4" />
-  <img src="5.png" width="400" alt="UI Preview 5" />
-  <img src="6.png" width="400" alt="UI Preview 6" />
+  <img src="images/1.png" width="400" alt="UI Preview 1" />
+  <img src="images/2.png" width="400" alt="UI Preview 2" />
+  <img src="images/3.png" width="400" alt="UI Preview 3" />
+  <img src="images/4.png" width="400" alt="UI Preview 4" />
+  <img src="images/5.png" width="400" alt="UI Preview 5" />
+  <img src="images/6.png" width="400" alt="UI Preview 6" />
 </p>
 
 ---
