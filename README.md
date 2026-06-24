@@ -32,18 +32,19 @@
 
 ---
 
-## 📑 ❬ TABLE_OF_CONTENTS ❭
-1. [🌟 Key Features](#key-features)
-2. [⚙️ System Requirements](#system-requirements)
-3. [🏗️ Architecture Overview](#architecture-overview)
-4. [📸 System Gallery](#system-gallery)
-5. [📥 Installation Guide](#installation-guide)
-6. [🚀 Execution Protocol](#execution-protocol)
-7. [🗑️ Uninstallation](#uninstallation)
+<h2 id="table-of-contents">📑 ❬ TABLE_OF_CONTENTS ❭</h2>
+
+1. <a href="#key-features">🌟 Key Features</a>
+2. <a href="#system-requirements">⚙️ System Requirements</a>
+3. <a href="#architecture-overview">🏗️ Architecture Overview</a>
+4. <a href="#system-gallery">📸 System Gallery</a>
+5. <a href="#installation-guide">📥 Installation Guide</a>
+6. <a href="#execution-protocol">🚀 Execution Protocol</a>
+7. <a href="#uninstallation">🗑️ Uninstallation</a>
 
 ---
 
-## <a name="key-features"></a>🌟 ❬ KEY_FEATURES ❭
+<h2 id="key-features">🌟 ❬ KEY_FEATURES ❭</h2>
 
 *   **🍏 macOS-Inspired UI/UX:** A heavily customized XFCE4 desktop environment featuring a dock, top panel, and polished icon themes for a premium look and feel.
 *   **🚀 Hardware Acceleration:** Native integration with `VirGL` (virpipe) to utilize your Android device's GPU for smooth 3D rendering and window transitions.
@@ -53,7 +54,7 @@
 
 ---
 
-## <a name="system-requirements"></a>⚙️ ❬ SYSTEM_REQUIREMENTS ❭
+<h2 id="system-requirements">⚙️ ❬ SYSTEM_REQUIREMENTS ❭</h2>
 
 Because ETF-Devb OS is a fully-fledged desktop environment, please ensure your device meets the following specifications:
 
@@ -68,7 +69,7 @@ Because ETF-Devb OS is a fully-fledged desktop environment, please ensure your d
 
 ---
 
-## <a name="architecture-overview"></a>🏗️ ❬ ARCHITECTURE_OVERVIEW ❭
+<h2 id="architecture-overview">🏗️ ❬ ARCHITECTURE_OVERVIEW ❭</h2>
 
 Curious how it works under the hood? Here is the flow of ETF-Devb OS:
 
@@ -88,11 +89,7 @@ graph TD
 
 ---
 
-## 📸 ❬ SYSTEM_GALLERY ❭
-
 ---
-
-## 📥 ❬ INSTALLATION_GUIDE ❭
 
 ### `STEP 1:` Environment Setup
 
@@ -114,8 +111,6 @@ curl -sL [https://raw.githubusercontent.com/ETF-Devb/ETF-Devb-OS/main/etf-os.sh]
 ```
 
 ---
-
-## 🚀 ❬ EXECUTION_PROTOCOL ❭
 
 The installer automatically generates global shortcuts for seamless access.
 
@@ -140,8 +135,6 @@ etf-cli
 ```
 
 ---
-
-## 🗑️ ❬ UNINSTALLATION ❭
 
 Need to free up space? You can safely remove the entire OS and its shortcuts by running:
 
