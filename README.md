@@ -11,6 +11,7 @@
   <img src="https://img.shields.io/badge/GUI-XFCE4-466486?style=for-the-badge&logo=xfce4&logoColor=white" alt="XFCE4" />
   <img src="https://img.shields.io/badge/License-MIT-F2C53D?style=for-the-badge&logo=opensourceinitiative&logoColor=black" alt="License" />
 </p>
+
 <p align="center">
   <img src="images/me.png" width="300" alt="ETF-Devb Creator" />
 </p>
@@ -32,16 +33,17 @@
 ---
 
 ## 📑 ❬ TABLE_OF_CONTENTS ❭
-1. [🌟 Key Features](#-key-features)
-2. [⚙️ System Requirements](#️-system-requirements)
-3. [🏗️ Architecture Overview](#️-architecture-overview)
-4. [📸 System Gallery](#-system-gallery)
-5. [📥 Installation Guide](#-installation-guide)
-6. [🚀 Execution Protocol](#-execution-protocol)
-7. [🗑️ Uninstallation](#️-uninstallation)
+1. [🌟 Key Features](#key-features)
+2. [⚙️ System Requirements](#system-requirements)
+3. [🏗️ Architecture Overview](#architecture-overview)
+4. [📸 System Gallery](#system-gallery)
+5. [📥 Installation Guide](#installation-guide)
+6. [🚀 Execution Protocol](#execution-protocol)
+7. [🗑️ Uninstallation](#uninstallation)
 
 ---
 
+<a id="key-features"></a>
 ## 🌟 ❬ KEY_FEATURES ❭
 
 *   **🍏 macOS-Inspired UI/UX:** A heavily customized XFCE4 desktop environment featuring a dock, top panel, and polished icon themes for a premium look and feel.
@@ -52,6 +54,7 @@
 
 ---
 
+<a id="system-requirements"></a>
 ## ⚙️ ❬ SYSTEM_REQUIREMENTS ❭
 
 Because ETF-Devb OS is a fully-fledged desktop environment, please ensure your device meets the following specifications:
@@ -67,6 +70,7 @@ Because ETF-Devb OS is a fully-fledged desktop environment, please ensure your d
 
 ---
 
+<a id="architecture-overview"></a>
 ## 🏗️ ❬ ARCHITECTURE_OVERVIEW ❭
 
 Curious how it works under the hood? Here is the flow of ETF-Devb OS:
@@ -89,15 +93,7 @@ graph TD
 
 ## 📸 ❬ SYSTEM_GALLERY ❭
 
-<p align="center">
-  <img src="https://raw.githubusercontent.com/ETF-Devb/ETF-Devb-OS/main/images/1.png" width="400" alt="UI Preview 1" />
-  <img src="https://raw.githubusercontent.com/ETF-Devb/ETF-Devb-OS/main/images/2.png" width="400" alt="UI Preview 2" />
-  <img src="https://raw.githubusercontent.com/ETF-Devb/ETF-Devb-OS/main/images/3.png" width="400" alt="UI Preview 3" />
-  <img src="https://raw.githubusercontent.com/ETF-Devb/ETF-Devb-OS/main/images/4.png" width="400" alt="UI Preview 4" />
-  <img src="https://raw.githubusercontent.com/ETF-Devb/ETF-Devb-OS/main/images/5.png" width="400" alt="UI Preview 5" />
-  <img src="https://raw.githubusercontent.com/ETF-Devb/ETF-Devb-OS/main/images/6.png" width="400" alt="UI Preview 6" />
-</p>
-
+---
 
 ## 📥 ❬ INSTALLATION_GUIDE ❭
 
