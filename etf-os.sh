@@ -55,17 +55,13 @@ function execute_multi_core_extraction() {
     rm -rf "$INSTALL_DIR"
     mkdir -p "$INSTALL_DIR"
     
-    # فك الضغط الكلاسيكي المباشر
     pv -p -t -e -r -b "$TAR_FILE" | xz -d -T0 | tar -xC "$INSTALL_DIR"
     
-    # خوارزمية المعالجة الذاتية (Self-Healing Algorithm) لإصلاح المسارات
     if [ ! -f "$INSTALL_DIR/bin/sh" ]; then
         echo -e "\033[1;33m[Fix] Re-aligning nested file paths automatically...\033[0m"
-        # هاد الأمر كيقلب في المجلدات الداخلية على مكان التثبيت الحقيقي
         local NESTED_DIR=$(find "$INSTALL_DIR" -mindepth 1 -maxdepth 2 -type d -name "bin" | head -n 1 | sed 's|/bin||')
         
         if [ -n "$NESTED_DIR" ] && [ "$NESTED_DIR" != "$INSTALL_DIR" ]; then
-            # كيخرج الملفات للمكان الصحيح باش يقراهم PRoot
             mv "$NESTED_DIR"/* "$NESTED_DIR"/.* "$INSTALL_DIR/" 2>/dev/null || true
             rm -rf "$NESTED_DIR"
         else
@@ -154,7 +150,6 @@ function pipeline_orchestrator() {
     echo -e "\033[1;37m        🚀 ETF-Devb OS Deployment Engine 🚀         \033[0m"
     echo -e "\033[1;32m====================================================\033[0m\n"
 
-    # الفحص الجديد المضمون باش ما يعاودش يتيليشارجي إلا كان النظام مريكل
     if [ -f "$INSTALL_DIR/bin/sh" ]; then
         echo -e "\033[1;32m[✓] ETF-Devb OS is already completely installed.\033[0m"
         exit 0
