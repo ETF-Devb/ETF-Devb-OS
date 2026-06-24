@@ -103,7 +103,6 @@ graph TD
   <img src="https://raw.githubusercontent.com/ETF-Devb/ETF-Devb-OS/main/images/6.png" width="400" alt="UI Preview 6" />
 
 </p>
----
 
 ## 📥 ❬ INSTALLATION_GUIDE ❭
 
