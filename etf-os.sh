@@ -26,7 +26,6 @@ function bootstrap_high_performance_dependencies() {
         pkg install -y aria2 pv xz-utils tar coreutils proot-distro pulseaudio wget curl > /dev/null 2>&1
     ) &
     local bg_pid=$!
-    
     start_spinner $bg_pid
     wait $bg_pid
     echo -e "\033[1;32m[✓] Core dependencies initialized perfectly.\033[0m"
@@ -35,10 +34,8 @@ function bootstrap_high_performance_dependencies() {
 function execute_multi_socket_download() {
     echo -e "\n\033[1;33m[Network] Spawning 16 parallel network sockets for extreme download speed...\033[0m"
     rm -f "$TAR_FILE" "$SHA_FILE"
-    
     aria2c -x 16 -s 16 -j 16 -k 1M --console-log-level=error --summary-interval=0 "$REPO_URL/$TAR_FILE"
     aria2c -x 4 -s 4 --console-log-level=error --summary-interval=0 "$REPO_URL/$SHA_FILE"
-    
     echo "" 
 }
 
@@ -55,13 +52,29 @@ function verify_cryptographic_signature() {
 
 function execute_multi_core_extraction() {
     echo -e "\033[1;35m[Hardware] Injecting Multi-Core Parallel Decompression Daemon (-T0)...\033[0m"
-    # تنظيف المجلد لضمان عدم وجود تداخل ملفات
     rm -rf "$INSTALL_DIR"
     mkdir -p "$INSTALL_DIR"
     
-    # فك الضغط الاحترافي المستقر بدون تدمير المجلدات الأصلية
+    # فك الضغط الكلاسيكي المباشر
     pv -p -t -e -r -b "$TAR_FILE" | xz -d -T0 | tar -xC "$INSTALL_DIR"
     
+    # خوارزمية المعالجة الذاتية (Self-Healing Algorithm) لإصلاح المسارات
+    if [ ! -f "$INSTALL_DIR/bin/sh" ]; then
+        echo -e "\033[1;33m[Fix] Re-aligning nested file paths automatically...\033[0m"
+        # هاد الأمر كيقلب في المجلدات الداخلية على مكان التثبيت الحقيقي
+        local NESTED_DIR=$(find "$INSTALL_DIR" -mindepth 1 -maxdepth 2 -type d -name "bin" | head -n 1 | sed 's|/bin||')
+        
+        if [ -n "$NESTED_DIR" ] && [ "$NESTED_DIR" != "$INSTALL_DIR" ]; then
+            # كيخرج الملفات للمكان الصحيح باش يقراهم PRoot
+            mv "$NESTED_DIR"/* "$NESTED_DIR"/.* "$INSTALL_DIR/" 2>/dev/null || true
+            rm -rf "$NESTED_DIR"
+        else
+            echo -e "\033[1;31m[✗] FATAL ERROR: No /bin/sh found! Archive appears permanently damaged.\033[0m"
+            exit 1
+        fi
+    fi
+    
+    echo -e "\033[1;32m[✓] System RootFS correctly aligned.\033[0m"
     rm -f "$TAR_FILE" "$SHA_FILE"
 }
 
@@ -141,8 +154,9 @@ function pipeline_orchestrator() {
     echo -e "\033[1;37m        🚀 ETF-Devb OS Deployment Engine 🚀         \033[0m"
     echo -e "\033[1;32m====================================================\033[0m\n"
 
-    if [ -d "$INSTALL_DIR/bin" ]; then
-        echo -e "\033[1;32m[✓] ETF-Devb OS is already installed on your system.\033[0m"
+    # الفحص الجديد المضمون باش ما يعاودش يتيليشارجي إلا كان النظام مريكل
+    if [ -f "$INSTALL_DIR/bin/sh" ]; then
+        echo -e "\033[1;32m[✓] ETF-Devb OS is already completely installed.\033[0m"
         exit 0
     fi
 
