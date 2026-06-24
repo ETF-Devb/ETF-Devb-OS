@@ -33,17 +33,18 @@
 
 ## 📑 ❬ TABLE OF CONTENTS ❭
 
-1. [🌟 Key Features](#-key-features)
-2. [⚙️ System Requirements](#%EF%B8%8F-system-requirements)
-3. [🏗️ Architecture Overview](#%EF%B8%8F-architecture-overview)
-4. [📸 System Gallery](#-system-gallery)
-5. [📥 Installation Guide](#-installation-guide)
-6. [🚀 Execution Protocol](#-execution-protocol)
-7. [🛠️ Troubleshooting & Fixes](#%EF%B8%8F-troubleshooting--fixes)
-8. [🗑️ Uninstallation](#%EF%B8%8F-uninstallation)
+1. [🌟 Key Features](#key-features)
+2. [⚙️ System Requirements](#system-requirements)
+3. [🏗️ Architecture Overview](#architecture-overview)
+4. [📸 System Gallery](#system-gallery)
+5. [📥 Installation Guide](#installation-guide)
+6. [🚀 Execution Protocol](#execution-protocol)
+7. [🛠️ Troubleshooting & Fixes](#troubleshooting-fixes)
+8. [🗑️ Uninstallation](#uninstallation)
 
 ---
 
+<a id="key-features"></a>
 ## 🌟 ❬ KEY FEATURES ❭
 
 | Feature | Description |
@@ -56,6 +57,7 @@
 
 ---
 
+<a id="system-requirements"></a>
 ## ⚙️ ❬ SYSTEM REQUIREMENTS ❭
 
 ETF-Devb OS is a fully-fledged desktop environment. Ensure your device meets the following specifications before proceeding:
@@ -71,6 +73,7 @@ ETF-Devb OS is a fully-fledged desktop environment. Ensure your device meets the
 
 ---
 
+<a id="architecture-overview"></a>
 ## 🏗️ ❬ ARCHITECTURE OVERVIEW ❭
 
 Here is a high-level diagram of how ETF-Devb OS is layered on top of Android:
@@ -90,6 +93,7 @@ graph TD
 
 ---
 
+<a id="system-gallery"></a>
 ## 📸 ❬ SYSTEM GALLERY ❭
 
 <p align="center">
@@ -103,6 +107,7 @@ graph TD
 
 ---
 
+<a id="installation-guide"></a>
 ## 📥 ❬ INSTALLATION GUIDE ❭
 
 ### `STEP 1` — Environment Setup
@@ -124,6 +129,7 @@ curl -sL https://raw.githubusercontent.com/ETF-Devb/ETF-Devb-OS/main/etf-os.sh -
 
 ---
 
+<a id="execution-protocol"></a>
 ## 🚀 ❬ EXECUTION PROTOCOL ❭
 
 After installation, two global shortcuts are available from any Termux session.
@@ -148,12 +154,37 @@ etf-cli
 
 ---
 
+<a id="troubleshooting-fixes"></a>
 ## 🛠️ ❬ TROUBLESHOOTING & FIXES ❭
 
-> 💡 For known issues and fixes, please check the [Issues](https://github.com/ETF-Devb/ETF-Devb-OS/issues) page or open a new issue if your problem isn't listed there.
+### 🔧 Fix — Nested `rootfs` Directory
+
+If the Debian filesystem is found nested inside a duplicate `rootfs` subdirectory after installation, run the following to flatten and correct the container structure:
+
+```bash
+cd $PREFIX/var/lib/proot-distro/containers/debian/rootfs
+mv rootfs/* .
+mv rootfs/.[!.]* . 2>/dev/null
+rmdir rootfs
+```
 
 ---
 
+### 🔧 Fix — Stale X11 / Xwayland Session
+
+If the desktop fails to launch, freezes, or becomes unresponsive, stale display socket files may be blocking the server. Run the following to reset the display environment:
+
+```bash
+pkill -f termux-x11
+pkill -f Xwayland
+rm -rf /tmp/.X11-unix /tmp/.X*-lock
+```
+
+> 💡 After the cleanup, relaunch normally with `etf-gui`.
+
+---
+
+<a id="uninstallation"></a>
 ## 🗑️ ❬ UNINSTALLATION ❭
 
 To completely remove ETF-Devb OS and all associated shortcuts, run:
