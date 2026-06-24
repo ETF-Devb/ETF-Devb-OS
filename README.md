@@ -153,35 +153,38 @@ etf-cli
 
 ### 🔧 Fix: Nested `rootfs` Directory Issue
 
-If after installation you find the Debian filesystem is nested inside an extra `rootfs` folder, run the following commands to correct the structure:
+If after installation the Debian filesystem is found nested inside a duplicate `rootfs` subdirectory, run the following commands to flatten and correct the container structure:
 
 ```bash
-# 1. الدخول للمجلد الرئيسي لنظام دبيان
+# Step 1 — Navigate to the Debian container root
 cd $PREFIX/var/lib/proot-distro/containers/debian/rootfs
 
-# 2. إخراج جميع الملفات العادية والمخفية للمسار الصحيح
+# Step 2 — Move all files (including hidden dotfiles) up one level
 mv rootfs/* .
 mv rootfs/.[!.]* . 2>/dev/null
 
-# 3. حذف المجلد الدخلاني التكراري بعدما خوى
+# Step 3 — Remove the now-empty duplicate directory
 rmdir rootfs
 
 ```
 
 ---
 
-### 🔧 Fix: X11 / Xwayland Cleanup
+### 🔧 Fix: Stale X11 / Xwayland Session
 
-If the desktop session crashes or becomes unresponsive, use these commands to forcefully terminate all related processes and clean up stale lock files:
+If the desktop session crashes, freezes, or fails to start, stale X11 lock files may be blocking the display server. Run the following to terminate all related processes and clear the socket files:
 
 ```bash
+# Terminate all display-related processes
 pkill -f termux-x11
 pkill -f Xwayland
+
+# Remove stale Unix socket and lock files
 rm -rf /tmp/.X11-unix /tmp/.X*-lock
 
 ```
 
-> 💡 After running the cleanup, simply relaunch with `etf-gui`.
+> 💡 Once the cleanup is complete, relaunch the desktop normally with `etf-gui`.
 
 ---
 
