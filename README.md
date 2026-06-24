@@ -13,7 +13,7 @@
 </p>
 
 <p align="center">
-  <img src="images/me.png" width="300" alt="ETF-Devb Creator" />
+  <img src="https://raw.githubusercontent.com/ETF-Devb/ETF-Devb-OS/main/images/1.png" width="400" alt="Preview 1" />
 </p>
 
 <br>
