@@ -43,8 +43,7 @@
 
 ---
 
-<a id="key-features"></a>
-## 🌟 ❬ KEY_FEATURES ❭
+## <a name="key-features"></a>🌟 ❬ KEY_FEATURES ❭
 
 *   **🍏 macOS-Inspired UI/UX:** A heavily customized XFCE4 desktop environment featuring a dock, top panel, and polished icon themes for a premium look and feel.
 *   **🚀 Hardware Acceleration:** Native integration with `VirGL` (virpipe) to utilize your Android device's GPU for smooth 3D rendering and window transitions.
@@ -54,8 +53,7 @@
 
 ---
 
-<a id="system-requirements"></a>
-## ⚙️ ❬ SYSTEM_REQUIREMENTS ❭
+## <a name="system-requirements"></a>⚙️ ❬ SYSTEM_REQUIREMENTS ❭
 
 Because ETF-Devb OS is a fully-fledged desktop environment, please ensure your device meets the following specifications:
 
@@ -70,8 +68,7 @@ Because ETF-Devb OS is a fully-fledged desktop environment, please ensure your d
 
 ---
 
-<a id="architecture-overview"></a>
-## 🏗️ ❬ ARCHITECTURE_OVERVIEW ❭
+## <a name="architecture-overview"></a>🏗️ ❬ ARCHITECTURE_OVERVIEW ❭
 
 Curious how it works under the hood? Here is the flow of ETF-Devb OS:
 
