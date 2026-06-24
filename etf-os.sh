@@ -55,9 +55,12 @@ function verify_cryptographic_signature() {
 
 function execute_multi_core_extraction() {
     echo -e "\033[1;35m[Hardware] Injecting Multi-Core Parallel Decompression Daemon (-T0)...\033[0m"
+    # تنظيف المجلد لضمان عدم وجود تداخل ملفات
+    rm -rf "$INSTALL_DIR"
     mkdir -p "$INSTALL_DIR"
     
-    pv -p -t -e -r -b "$TAR_FILE" | xz -d -T0 | tar -xC "$INSTALL_DIR" --strip-components=1
+    # فك الضغط الاحترافي المستقر بدون تدمير المجلدات الأصلية
+    pv -p -t -e -r -b "$TAR_FILE" | xz -d -T0 | tar -xC "$INSTALL_DIR"
     
     rm -f "$TAR_FILE" "$SHA_FILE"
 }
@@ -138,7 +141,7 @@ function pipeline_orchestrator() {
     echo -e "\033[1;37m        🚀 ETF-Devb OS Deployment Engine 🚀         \033[0m"
     echo -e "\033[1;32m====================================================\033[0m\n"
 
-    if [ -d "$INSTALL_DIR" ]; then
+    if [ -d "$INSTALL_DIR/bin" ]; then
         echo -e "\033[1;32m[✓] ETF-Devb OS is already installed on your system.\033[0m"
         exit 0
     fi
