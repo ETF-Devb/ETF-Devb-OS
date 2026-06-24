@@ -38,7 +38,8 @@
 4. [📸 System Gallery](#-system-gallery)
 5. [📥 Installation Guide](#-installation-guide)
 6. [🚀 Execution Protocol](#-execution-protocol)
-7. [🗑️ Uninstallation](#️-uninstallation)
+7. [🛠️ Troubleshooting & Fixes](#️-troubleshooting--fixes)
+8. [🗑️ Uninstallation](#️-uninstallation)
 
 ---
 
@@ -145,6 +146,42 @@ If you only need quick access to the Debian subsystem via terminal:
 etf-cli
 
 ```
+
+---
+
+## 🛠️ ❬ TROUBLESHOOTING & FIXES ❭
+
+### 🔧 Fix: Nested `rootfs` Directory Issue
+
+If after installation you find the Debian filesystem is nested inside an extra `rootfs` folder, run the following commands to correct the structure:
+
+```bash
+# 1. الدخول للمجلد الرئيسي لنظام دبيان
+cd $PREFIX/var/lib/proot-distro/containers/debian/rootfs
+
+# 2. إخراج جميع الملفات العادية والمخفية للمسار الصحيح
+mv rootfs/* .
+mv rootfs/.[!.]* . 2>/dev/null
+
+# 3. حذف المجلد الدخلاني التكراري بعدما خوى
+rmdir rootfs
+
+```
+
+---
+
+### 🔧 Fix: X11 / Xwayland Cleanup
+
+If the desktop session crashes or becomes unresponsive, use these commands to forcefully terminate all related processes and clean up stale lock files:
+
+```bash
+pkill -f termux-x11
+pkill -f Xwayland
+rm -rf /tmp/.X11-unix /tmp/.X*-lock
+
+```
+
+> 💡 After running the cleanup, simply relaunch with `etf-gui`.
 
 ---
 
