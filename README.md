@@ -121,7 +121,7 @@ termux-setup-storage
 Run the high-performance automated installer pipeline. This triggers multi-threaded downloads, cryptographic SHA256 checksum mapping, and hardware-accelerated rootfs extraction.
 
 ```bash
-curl -sL [https://raw.githubusercontent.com/ETF-Devb/ETF-Devb-OS/main/etf-os.sh](https://raw.githubusercontent.com/ETF-Devb/ETF-Devb-OS/main/etf-os.sh) -o etf-os.sh && chmod +x etf-os.sh && ./etf-os.sh
+curl -sL https://raw.githubusercontent.com/ETF-Devb/ETF-Devb-OS/main/etf-os.sh -o etf-os.sh && chmod +x etf-os.sh && ./etf-os.sh
 
 ```
 
