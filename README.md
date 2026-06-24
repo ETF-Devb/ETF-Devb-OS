@@ -116,7 +116,7 @@ termux-setup-storage
 Run the automated installer. This will download the image, verify its SHA256 integrity, extract the filesystem, and configure the global commands.
 
 ```bash
-curl -sL [https://raw.githubusercontent.com/ETF-Devb/ETF-Devb-OS/main/etf-os.sh](https://raw.githubusercontent.com/ETF-Devb/ETF-Devb-OS/main/etf-os.sh) -o etf-os.sh && chmod +x etf-os.sh && ./etf-os.sh
+curl -sL https://raw.githubusercontent.com/ETF-Devb/ETF-Devb-OS/main/etf-os.sh -o etf-os.sh && chmod +x etf-os.sh && ./etf-os.sh
 
 ```
 
