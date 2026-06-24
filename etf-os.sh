@@ -7,33 +7,54 @@ export TAR_FILE="ETF-Devb_OS.tar.xz"
 export SHA_FILE="ETF-Devb_OS.tar.xz.sha256"
 export INSTALL_DIR="$PREFIX/var/lib/proot-distro/installed-rootfs/debian"
 
+function start_spinner() {
+    local pid=$1
+    local delay=0.1
+    local spinstr='⠋⠙⠹⠸⠼⠴⠦⠧⠇⠏'
+    while kill -0 $pid 2>/dev/null; do
+        local temp=${spinstr#?}
+        printf "\r\033[1;36m[%c] Preparing system environment & dependencies... Please wait.\033[0m" "$spinstr"
+        local spinstr=$temp${spinstr%"$temp"}
+        sleep $delay
+    done
+    printf "\r\033[K"
+}
+
 function bootstrap_high_performance_dependencies() {
-    pkg update -y > /dev/null 2>&1
-    pkg install -y aria2 pv xz-utils tar coreutils proot-distro pulseaudio wget curl > /dev/null 2>&1
+    (
+        pkg update -y > /dev/null 2>&1
+        pkg install -y aria2 pv xz-utils tar coreutils proot-distro pulseaudio wget curl > /dev/null 2>&1
+    ) &
+    local bg_pid=$!
+    
+    start_spinner $bg_pid
+    wait $bg_pid
+    echo -e "\033[1;32m[✓] Core dependencies initialized perfectly.\033[0m"
 }
 
 function execute_multi_socket_download() {
-    echo -e "\033[1;36m[Network] Spawning 16 parallel network sockets for extreme download speed...\033[0m"
+    echo -e "\n\033[1;33m[Network] Spawning 16 parallel network sockets for extreme download speed...\033[0m"
     rm -f "$TAR_FILE" "$SHA_FILE"
     
     aria2c -x 16 -s 16 -j 16 -k 1M --console-log-level=error --summary-interval=0 "$REPO_URL/$TAR_FILE"
     aria2c -x 4 -s 4 --console-log-level=error --summary-interval=0 "$REPO_URL/$SHA_FILE"
-    print ""
+    
+    echo "" 
 }
 
 function verify_cryptographic_signature() {
-    echo -e "\033[1;32m[Security] Running cryptographic validation...\033[0m"
+    echo -e "\033[1;36m[Security] Running cryptographic validation...\033[0m"
     if sha256sum -c "$SHA_FILE" > /dev/null 2>&1; then
-        echo -e "\033[1;32m[✓] Integrity verified.\033[0m\n"
+        echo -e "\033[1;32m[✓] Integrity verified (SHA256 Match).\033[0m\n"
     else
-        echo -e "\033[1;31m[✗] Critical Error: Checksum mismatch.\033[0m"
+        echo -e "\033[1;31m[✗] Critical Error: Checksum mismatch. Download corrupted.\033[0m"
         rm -f "$TAR_FILE" "$SHA_FILE"
         exit 1
     fi
 }
 
 function execute_multi_core_extraction() {
-    echo -e "\033[1;33m[Hardware] Injecting Multi-Core Parallel Decompression Deamon (-T0)...\033[0m"
+    echo -e "\033[1;35m[Hardware] Injecting Multi-Core Parallel Decompression Daemon (-T0)...\033[0m"
     mkdir -p "$INSTALL_DIR"
     
     pv -p -t -e -r -b "$TAR_FILE" | xz -d -T0 | tar -xC "$INSTALL_DIR" --strip-components=1
@@ -42,6 +63,7 @@ function execute_multi_core_extraction() {
 }
 
 function generate_runtime_shortcuts() {
+    echo -e "\n\033[1;36m[System] Generating dynamic shortcuts...\033[0m"
     mkdir -p $PREFIX/bin
 
     cat << 'EOF' > $PREFIX/bin/etf-cli
@@ -112,8 +134,12 @@ EOF
 
 function pipeline_orchestrator() {
     clear
+    echo -e "\033[1;32m====================================================\033[0m"
+    echo -e "\033[1;37m        🚀 ETF-Devb OS Deployment Engine 🚀         \033[0m"
+    echo -e "\033[1;32m====================================================\033[0m\n"
+
     if [ -d "$INSTALL_DIR" ]; then
-        echo -e "\033[1;32m[✓] ETF-Devb OS already present.\033[0m"
+        echo -e "\033[1;32m[✓] ETF-Devb OS is already installed on your system.\033[0m"
         exit 0
     fi
 
@@ -124,7 +150,10 @@ function pipeline_orchestrator() {
     generate_runtime_shortcuts
     generate_global_shutdown_tool
     
-    echo -e "\033[1;32m[Success] High-speed deployment concluded. Commands: etf-gui, etf-cli, stop_env.sh\033[0m"
+    echo -e "\n\033[1;32m====================================================\033[0m"
+    echo -e "\033[1;32m[Success] High-speed deployment concluded successfully!\033[0m"
+    echo -e "\033[1;37m▶ Commands available globally: \033[1;33metf-gui\033[1;37m, \033[1;33metf-cli\033[1;37m, \033[1;31mstop_env.sh\033[0m"
+    echo -e "\033[1;32m====================================================\033[0m"
 }
 
 pipeline_orchestrator
