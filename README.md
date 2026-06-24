@@ -1,6 +1,5 @@
 <div align="center">
 
-<!-- Animated Header -->
 <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=800&size=40&pause=1000&color=00C853&center=true&vCenter=true&width=800&height=100&lines=ETF-Devb+OS;The+Ultimate+Desktop+Experience;Powered+by+Termux+%26+Debian" alt="ETF-Devb OS Animated Header" />
 
 **Advanced macOS-Inspired Linux Subsystem Environment for Android**
@@ -17,12 +16,10 @@
 
 <br>
 
-> **"Bridging the gap between Mobile Portability and Desktop Productivity."**  
-> ETF-Devb OS provides a fully accelerated, aesthetically perfected desktop experience directly on your Android device, utilizing X11, PulseAudio, and VirGL for maximum performance.
+> **"Bridging the gap between Mobile Portability and Desktop Productivity."** > ETF-Devb OS provides a fully accelerated, aesthetically perfected desktop experience directly on your Android device, utilizing X11, PulseAudio, and VirGL for maximum performance.
 
 <br>
 
-<!-- Professional Download Button -->
 <a href="https://github.com/ETF-Devb/ETF-Devb-OS/releases/latest">
   <img src="https://img.shields.io/badge/📥_DOWNLOAD_OFFICIAL_RELEASE-v1.0.0-8A2BE2?style=for-the-badge&logo=github&logoColor=white&scale=1.2" alt="Download Release" />
 </a>
@@ -44,11 +41,12 @@
 
 ## 🌟 ❬ KEY_FEATURES ❭
 
-*   **🍏 macOS-Inspired UI/UX:** A heavily customized XFCE4 desktop environment featuring a dock, top panel, and polished icon themes for a premium look and feel.
-*   **🚀 Hardware Acceleration:** Native integration with `VirGL` (virpipe) to utilize your Android device's GPU for smooth 3D rendering and window transitions.
-*   **🎵 Seamless Audio:** Built-in `PulseAudio` server bridging the Linux environment with Android's audio system with zero noticeable latency.
-*   **📦 Out-of-the-Box Ready:** Pre-configured with essential desktop applications, file managers, and network tools (No post-install bloated setup required).
-*   **⚡ Automated Deployment:** A robust single-script installer with cryptographic checksum verification (SHA256).
+* **🍏 macOS-Inspired UI/UX:** A heavily customized XFCE4 desktop environment featuring a dock, top panel, and polished icon themes for a premium look and feel.
+* **🚀 Hardware Acceleration:** Native integration with `VirGL` (virpipe) to utilize your Android device's GPU for smooth 3D rendering and window transitions.
+* **🎵 Seamless Audio:** Built-in `PulseAudio` server bridging the Linux environment with Android's audio system with zero noticeable latency.
+* **⚡ Ultra-Fast Parallel Installer:** Re-engineered setup deploying `aria2c` for **16 parallel download streams** (Network Socket Saturation) and multi-core `xz -T0` extraction to eliminate CPU bottlenecks.
+* **📊 Low-Overhead Monitoring:** Integrated with `pv` (Pipe Viewer) to compute sub-second decompression progress, data speeds, and precise extraction timeframes without wasting processor cycles.
+* **🧹 Automated Environment Purge:** Smarter runtime controller that tracks X11 termination, instantly killing background zombie processes (`pulseaudio`, `proot`, `Xwayland`, `virgl`) upon session exit to preserve your RAM and battery lifecycle.
 
 ---
 
@@ -83,6 +81,7 @@ graph TD
     style C fill:#A81D33,stroke:#fff,stroke-width:2px,color:#fff
     style G fill:#466486,stroke:#fff,stroke-width:2px,color:#fff
 
+
 ```
 
 ---
@@ -90,14 +89,21 @@ graph TD
 ## 📸 ❬ SYSTEM_GALLERY ❭
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/ETF-Devb/ETF-Devb-OS/main/images/1.png" width="400" alt="UI Preview 1" />
-  <img src="https://raw.githubusercontent.com/ETF-Devb/ETF-Devb-OS/main/images/2.png" width="400" alt="UI Preview 2" />
-  <img src="https://raw.githubusercontent.com/ETF-Devb/ETF-Devb-OS/main/images/3.png" width="400" alt="UI Preview 3" />
-  <img src="https://raw.githubusercontent.com/ETF-Devb/ETF-Devb-OS/main/images/4.png" width="400" alt="UI Preview 4" />
-  <img src="https://raw.githubusercontent.com/ETF-Devb/ETF-Devb-OS/main/images/5.png" width="400" alt="UI Preview 5" />
-  <img src="https://raw.githubusercontent.com/ETF-Devb/ETF-Devb-OS/main/images/6.png" width="400" alt="UI Preview 6" />
-</p>
 
+  <img src="https://raw.githubusercontent.com/ETF-Devb/ETF-Devb-OS/main/images/1.png" width="400" alt="UI Preview 1" />
+
+  <img src="https://raw.githubusercontent.com/ETF-Devb/ETF-Devb-OS/main/images/2.png" width="400" alt="UI Preview 2" />
+
+  <img src="https://raw.githubusercontent.com/ETF-Devb/ETF-Devb-OS/main/images/3.png" width="400" alt="UI Preview 3" />
+
+  <img src="https://raw.githubusercontent.com/ETF-Devb/ETF-Devb-OS/main/images/4.png" width="400" alt="UI Preview 4" />
+
+  <img src="https://raw.githubusercontent.com/ETF-Devb/ETF-Devb-OS/main/images/5.png" width="400" alt="UI Preview 5" />
+
+  <img src="https://raw.githubusercontent.com/ETF-Devb/ETF-Devb-OS/main/images/6.png" width="400" alt="UI Preview 6" />
+
+</p>
+---
 
 ## 📥 ❬ INSTALLATION_GUIDE ❭
 
@@ -113,10 +119,10 @@ termux-setup-storage
 
 ### `STEP 2:` Execute Deployment Script
 
-Run the automated installer. This will download the image, verify its SHA256 integrity, extract the filesystem, and configure the global commands.
+Run the high-performance automated installer pipeline. This triggers multi-threaded downloads, cryptographic SHA256 checksum mapping, and hardware-accelerated rootfs extraction.
 
 ```bash
-curl -sL https://raw.githubusercontent.com/ETF-Devb/ETF-Devb-OS/main/etf-os.sh -o etf-os.sh && chmod +x etf-os.sh && ./etf-os.sh
+curl -sL [https://raw.githubusercontent.com/ETF-Devb/ETF-Devb-OS/main/etf-os.sh](https://raw.githubusercontent.com/ETF-Devb/ETF-Devb-OS/main/etf-os.sh) -o etf-os.sh && chmod +x etf-os.sh && ./etf-os.sh
 
 ```
 
@@ -124,25 +130,35 @@ curl -sL https://raw.githubusercontent.com/ETF-Devb/ETF-Devb-OS/main/etf-os.sh -
 
 ## 🚀 ❬ EXECUTION_PROTOCOL ❭
 
-The installer automatically generates global shortcuts for seamless access.
+The installer automatically compiles and generates global system utilities inside your environment path (`$PREFIX/bin`) for immediate invocation.
 
 ### 🌌 Full Desktop Experience (GUI Mode)
 
-To launch the full XFCE4 macOS-like desktop with hardware acceleration and audio:
+To boot into the full XFCE4 macOS-like desktop configuration with complete sound routing and hardware-accelerated rendering:
 
 ```bash
 etf-gui
 
 ```
 
-> ⚠️ **CRITICAL:** You must open the **Termux-X11** app in the background *before* executing this command.
+> ⚠️ **CRITICAL:** You must open the **Termux-X11** app in the background *before* executing this utility.
+> 💡 *Note: Closing the X11 app automatically triggers a background purge daemon that isolates and cleans all hanging subsystem servers.*
 
 ### 🖥️ Pure Terminal (CLI Mode)
 
-If you only need quick access to the Debian subsystem via terminal:
+If you only need immediate headless access to the Debian core layer directly through the standard CLI console:
 
 ```bash
 etf-cli
+
+```
+
+### 🚨 Manual Subsystem Purge (Emergency Tool)
+
+If your desktop layout freezes or a sound socket locks up in the background, you can force-reclaim 100% of your system resources globally via an isolated session terminal:
+
+```bash
+stop_env.sh
 
 ```
 
@@ -150,10 +166,10 @@ etf-cli
 
 ## 🗑️ ❬ UNINSTALLATION ❭
 
-Need to free up space? You can safely remove the entire OS and its shortcuts by running:
+Need to wipe the system and free up device memory storage? You can completely wipe the subsystem layer along with its custom shortcut maps by running:
 
 ```bash
 rm -rf $PREFIX/var/lib/proot-distro/installed-rootfs/debian
-rm -f $PREFIX/bin/etf-cli $PREFIX/bin/etf-gui
+rm -f $PREFIX/bin/etf-cli $PREFIX/bin/etf-gui $PREFIX/bin/stop_env.sh
 
 ```
